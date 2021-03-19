@@ -30,6 +30,10 @@ namespace taskutil
                     {
                         gfn.NoProcessTypeFinder();
                     }
+                    if (args.Length == 2)
+                    {
+                        gfn.NoProcessArg();
+                    }
                     if (args[1] == "/p")
                     {
                         gfn.ProcessKillPID(args[2]);
@@ -43,30 +47,38 @@ namespace taskutil
                 {
                     if (args.Length == 1)
                     {
+                        gfn.NoProcessTypeFinder();
+                    }
+                    if (args.Length == 2)
+                    {
                         gfn.NoProcessArg();
                     }
                     if (args[1] == "/p")
                     {
-
+                        gfn.ProcessSuspendPID(args[2]);
                     }
                     if (args[1] == "/n")
                     {
-
+                        gfn.ProcessSuspend(args[2]);
                     }
                 }
                 if (args[0] == "/r")
                 {
                     if (args.Length == 1)
                     {
+                        gfn.NoProcessTypeFinder();
+                    }
+                    if (args.Length == 2)
+                    {
                         gfn.NoProcessArg();
                     }
                     if (args[1] == "/p")
                     {
-
+                        gfn.ProcessResumePID(args[2]);
                     }
                     if (args[1] == "/n")
                     {
-
+                        gfn.ProcessResume(args[2]);
                     }
                 }
             }
