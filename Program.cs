@@ -3,20 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace taskutil
 {
     class Program
     {
-        
+
         static void Main(string[] args)
         {
-            
+            bool gui = false;
             gfn gfn = new gfn();
 
             if (args.Length == 0)
             {
-                gfn.NoArgs();
+                gui = true;
+                Application.EnableVisualStyles();
+                Application.Run(new taskutilgui(gui));
             }
             else
             {

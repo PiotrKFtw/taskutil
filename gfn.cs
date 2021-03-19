@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
 [Flags]
 public enum ThreadAccess : int
@@ -55,6 +56,7 @@ namespace taskutil
 {
     class gfn
     {
+        
 
         public static void NoArgs()
         {
@@ -93,7 +95,7 @@ namespace taskutil
             return;
         }
 
-        public static void ProcessKill(string process)
+        public static void ProcessKill(string process, bool gui)
         {
             foreach (var pwet in Process.GetProcessesByName(process))
             {
@@ -110,7 +112,7 @@ namespace taskutil
             }
         }
 
-        public static void ProcessSuspend(string process)
+        public static void ProcessSuspend(string process, bool gui)
         {
 
             foreach (var pwet in Process.GetProcessesByName(process))
@@ -129,7 +131,7 @@ namespace taskutil
             }
         }
 
-        public static void ProcessResume(string process)
+        public static void ProcessResume(string process, bool gui)
         {
             foreach (var pwet in Process.GetProcessesByName(process))
             {
@@ -146,7 +148,7 @@ namespace taskutil
             }
         }
 
-        public static void ProcessKillPID(string process)
+        public static void ProcessKillPID(string process, bool gui)
         {
             int id = Convert.ToInt32(process);
             Process pwet = Process.GetProcessById(id);
@@ -164,7 +166,7 @@ namespace taskutil
 
         }
 
-        public static void ProcessSuspendPID(string process)
+        public static void ProcessSuspendPID(string process, bool gui)
         {
             int id = Convert.ToInt32(process);
             Process pwet = Process.GetProcessById(id);
@@ -181,7 +183,7 @@ namespace taskutil
             }
         }
 
-        public static void ProcessResumePID(string process)
+        public static void ProcessResumePID(string process, bool gui)
         {
             int id = Convert.ToInt32(process);
             Process pwet = Process.GetProcessById(id);
@@ -189,7 +191,14 @@ namespace taskutil
             try
             {
                 pwet.Resume();
-                Console.WriteLine(processname + " was resumed.");
+                if (gui)
+                {
+                    MessageBox.Show(processname + "was resumed");
+                }
+                else
+                {
+                    Console.WriteLine(processname + " was resumed.");
+                }
             }
             catch
             {
