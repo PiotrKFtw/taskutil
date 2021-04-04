@@ -7,7 +7,7 @@ Like, How did you even manage to get so far?
 I don't Think so.
 
 ## Is it really free?
-Yea. I mean, if you are here, it is even Open Source!
+Yea. I mean, if you are here, it is even Open Source! But please, if u do a edit, please credit me.
 
 ## Where can I contact you?
 Well, there are many way, but the fastest way to contact me is Discord: https://discord.gg/SwnMsRr36y \
