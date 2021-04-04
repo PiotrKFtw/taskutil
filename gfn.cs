@@ -95,116 +95,65 @@ namespace taskutil
             return;
         }
 
-        public static void ProcessKill(string process, bool gui)
+        public static void ProcessKill(string process)
         {
             foreach (var pwet in Process.GetProcessesByName(process))
-            {
-                try
-                {
-                    pwet.Kill();
-                    Console.WriteLine(process + " was terminated.");
-                }
-                catch
-                {
-                    Console.WriteLine("The process couldn\'t be terminated. Does it even exist or is it protected?");
-                    return;
-                }
-            }
-        }
-
-        public static void ProcessSuspend(string process, bool gui)
-        {
-
-            foreach (var pwet in Process.GetProcessesByName(process))
-            {
-                try
-                {
-                    pwet.Suspend();
-                    Console.WriteLine(process + " was suspended.");
-                }
-                catch
-                {
-                    Console.WriteLine("The process couldn\'t be suspended. Does it even exist or is it protected?");
-                    return;
-                }
-
-            }
-        }
-
-        public static void ProcessResume(string process, bool gui)
-        {
-            foreach (var pwet in Process.GetProcessesByName(process))
-            {
-                try
-                {
-                    pwet.Resume();
-                    Console.WriteLine(process + " was resumed.");
-                }
-                catch
-                {
-                    Console.WriteLine("The process couldn\'t be resumed. Does it even exist or is it protected?");
-                    return;
-                }
-            }
-        }
-
-        public static void ProcessKillPID(string process, bool gui)
-        {
-            int id = Convert.ToInt32(process);
-            Process pwet = Process.GetProcessById(id);
-            string processname = pwet.ProcessName;
-            try
             {
                 pwet.Kill();
-                Console.WriteLine(processname + " was terminated.");
+                Console.WriteLine("The Process was killed.");
             }
-            catch
-            {
-                Console.WriteLine("The process couldn\'t be terminated. Does it even exist or is it protected?");
-                return;
-            }
-
         }
 
-        public static void ProcessSuspendPID(string process, bool gui)
+        public static void ProcessSuspend(string process)
+        {
+
+            foreach (var pwet in Process.GetProcessesByName(process))
+            {
+               
+                    pwet.Suspend();
+                
+
+            }
+        }
+
+        public static void ProcessResume(string process)
+        {
+            foreach (var pwet in Process.GetProcessesByName(process))
+            {
+                    pwet.Resume();
+                
+            }
+        }
+
+        public static void ProcessKillPID(string process)
         {
             int id = Convert.ToInt32(process);
             Process pwet = Process.GetProcessById(id);
             string processname = pwet.ProcessName;
-            try
-            {
+           
+                pwet.Kill();
+            
+
+        }
+
+        public static void ProcessSuspendPID(string process)
+        {
+            int id = Convert.ToInt32(process);
+            Process pwet = Process.GetProcessById(id);
+            string processname = pwet.ProcessName;
+            
                 pwet.Suspend();
-                Console.WriteLine(processname + " was suspended.");
-            }
-            catch
-            {
-                Console.WriteLine("The process couldn\'t be suspended. Does it even exist or is it protected?");
-                return;
-            }
+            
         }
 
-        public static void ProcessResumePID(string process, bool gui)
+        public static void ProcessResumePID(string process)
         {
             int id = Convert.ToInt32(process);
             Process pwet = Process.GetProcessById(id);
             string processname = pwet.ProcessName;
-            try
-            {
+            
                 pwet.Resume();
-                if (gui)
-                {
-                    MessageBox.Show(processname + "was resumed");
-                }
-                else
-                {
-                    Console.WriteLine(processname + " was resumed.");
-                }
-            }
-            catch
-            {
-                Console.WriteLine("The process couldn\'t be resumed. Does it even exist or is it protected?");
-                return;
-            }
+            
         }
     }
 }

@@ -39,10 +39,12 @@ namespace taskutil
                     }
                     if (args[1] == "/p")
                     {
+                        
                         gfn.ProcessKillPID(args[2]);
                     }
                     if (args[1] == "/n")
                     {
+                        
                         gfn.ProcessKill(args[2]);
                     }
                 }
@@ -58,11 +60,13 @@ namespace taskutil
                     }
                     if (args[1] == "/p")
                     {
+                        Console.WriteLine("The Process was suspended.");
                         gfn.ProcessSuspendPID(args[2]);
                     }
                     if (args[1] == "/n")
                     {
-                        gfn.ProcessSuspend(args[2]);
+                        Console.WriteLine("The Process was suspended.");
+                        gfn.ProcessSuspend(args[2]);                
                     }
                 }
                 if (args[0] == "/r")
@@ -77,10 +81,12 @@ namespace taskutil
                     }
                     if (args[1] == "/p")
                     {
+                        Console.WriteLine("The Process was resumed.");
                         gfn.ProcessResumePID(args[2]);
                     }
                     if (args[1] == "/n")
                     {
+                        Console.WriteLine("The Process was resumed.");
                         gfn.ProcessResume(args[2]);
                     }
                 }

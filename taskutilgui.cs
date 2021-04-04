@@ -28,33 +28,38 @@ namespace taskutil
                 if (comboBox2.Text == "processname")
                 {
                     gfn.ProcessKill(textBox1.Text);
-                    MessageBox.Show(textBox1.Text + "was killed successfully.");
+                    MessageBox.Show("The Process was killed.");
                 }
                 if (comboBox2.Text == "pid")
                 {
-
+                    gfn.ProcessKillPID(textBox1.Text);
+                    MessageBox.Show("The Process was killed.");
                 }
             }
             if (comboBox1.Text == "suspend")
             {
                 if (comboBox2.Text == "processname")
                 {
-
+                    gfn.ProcessSuspend(textBox1.Text);
+                    MessageBox.Show("The Process was suspended.");
                 }
                 if (comboBox2.Text == "pid")
                 {
-
+                    gfn.ProcessSuspendPID(textBox1.Text);
+                    MessageBox.Show("The Process was suspended.");
                 }
             }
             if (comboBox1.Text == "resume")
             {
                 if (comboBox2.Text == "processname")
                 {
-
+                    gfn.ProcessResume(textBox1.Text);
+                    MessageBox.Show("The Process was resumed.");
                 }
                 if (comboBox2.Text == "pid")
                 {
-
+                    gfn.ProcessResumePID(textBox1.Text);
+                    MessageBox.Show("The Process was resumed.");
                 }
             }
         }
